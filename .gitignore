@@ -1,0 +1,11 @@
+# ignore DS_Store from mac
+.DS_Store
+
+# ignore composer
+composer.json
+composer.lock
+
+#ignore resources folder
+/project_resources/
+.sublime-project
+.sublime-workspace
