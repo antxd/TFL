@@ -5,5 +5,6 @@ define('DBHOST','localhost');
 define('DBUSER','root');
 define('DBPASS','root');
 define('DBNAME','tfl');
+define('IMGBBAPIKEY','API');
 $paises = array("Argentina","Chile","Colombia","España","Perú","Reino Unido");
 $versiones = array(1 => "Prime", 2 => "Prime 2", 3 => "XX");
