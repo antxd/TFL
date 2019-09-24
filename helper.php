@@ -167,7 +167,7 @@ $app->map('notify_helper_add',function($notify){
 });
 
 $app->map('save_record_image',function($image,$name = null){
-    $API_KEY = '0a5f3503f0603a70e49a96066997cfb1';
+    $API_KEY = IMGBBAPIKEY;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'https://api.imgbb.com/1/upload?key='.$API_KEY);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

@@ -4,6 +4,7 @@
 # ignore composer
 composer.json
 composer.lock
+config.php
 
 #ignore resources folder
 /project_resources/
