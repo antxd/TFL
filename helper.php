@@ -166,7 +166,27 @@ $app->map('notify_helper_add',function($notify){
     array_push($_SESSION['system_notify'], $notify);
 });
 
-
+$app->map('save_record_image',function($image,$name = null){
+    $API_KEY = '0a5f3503f0603a70e49a96066997cfb1';
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, 'https://api.imgbb.com/1/upload?key='.$API_KEY);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_SAFE_UPLOAD, false);
+    $extension = pathinfo($image['name'],PATHINFO_EXTENSION);
+    $file_name = ($name)? $name.'.'.$extension : $image['name'] ;
+    $data = array('image' => base64_encode(file_get_contents($image['tmp_name'])), 'name' => $file_name);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    $result = curl_exec($ch);
+    if (curl_errno($ch)) {
+        return 'Error:' . curl_error($ch);
+    }else{
+        return json_decode($result, true);
+    }
+    curl_close($ch);
+    //$app->save_record_image($_FILES['record_image'],'test');
+    //echo $return['data']['url'];
+});
 
 
 
