@@ -10,3 +10,4 @@ config.php
 /project_resources/
 .sublime-project
 .sublime-workspace
+config.php
